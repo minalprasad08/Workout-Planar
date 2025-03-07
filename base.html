@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Plans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Workout Plans</h1>
+    <a href="{{ url_for('add') }}">Add Workout</a>
+    <ul>
+        {% for workout in workouts %}
+            <li>
+                <strong>{{ workout[1] }}</strong> - {{ workout[2] }}
+                <a href="{{ url_for('edit', id=workout[0]) }}">Edit</a>
+                <a href="{{ url_for('delete', id=workout[0]) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
